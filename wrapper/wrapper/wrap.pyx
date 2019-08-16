@@ -1,5 +1,3 @@
-from pathlib import Path
-import wrap as wr
 
 cdef class FuncWrapper:
     def __cinit__(self):
@@ -16,17 +14,11 @@ cdef int lambda_c(function_type func, int c, int d):
 
 cdef class PyClass:
     @staticmethod
-    def py_wrap(func, e, f):
-        func2 = <FuncWrapper>func
-        print(lambda_c(func2.func, e, f))
-
+    def py_wrap(FuncWrapper func, e, f):
+        print(lambda_c(func.func, e, f))
 
 
 cdef int mult(int  a, int b):
     return a*b
 
-def get_include():
-    directory = list()
-    directory.append(str(Path(wr.__file__).resolve()))
-    return directory
 
