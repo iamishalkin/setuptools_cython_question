@@ -1,4 +1,4 @@
-from wrap cimport *
+from wrapper cimport FuncWrapper
 
 cdef int add_c_implementation(int  a, int b):
     return a+b

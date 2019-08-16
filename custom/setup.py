@@ -3,16 +3,15 @@ from Cython.Build import cythonize
 from Cython.Distutils import build_ext
 import wrap
 
-NAME = 'test'
+NAME = 'wtest'
 
 ext_abc = Extension(name= "cust",
                     sources=["cust.pyx"],
-                    include_dirs=wrap.get_include()
+                    include_dirs=[str(x) for x in wrap.get_include()]
                     )
 
 EXTENSIONS = [
     ext_abc
-
 ]
 
 if __name__ == "__main__":
